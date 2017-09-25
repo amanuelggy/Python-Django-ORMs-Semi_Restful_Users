@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Users</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <style>
+            body {font-family: 'Roboto', sans-serif
+            }
+        </style>
+</head>
+<body>
+        
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <th>id</th>
+                    <th>Full Name</th>                    
+                    <th>Email</th>
+                    <th>Created At</th>
+                    <th>Actions</th>
+                </tr>
+                {% for i in users_info %}
+                <tr>                    
+                    <td>{{i.id}}</td>
+                    <td><a href="/users/{{i.id}}">{{i.first_name}} {{i.last_name}}</a></td>                    
+                    <td>{{i.email}}</td>
+                    <td>{{i.created_at}}</td>
+                    <td><a href="/users/{{i.id}}">Show</a> &nbsp; <a href = "/users/{{i.id}}/edit">Edit</a> &nbsp; <a href="/users/destroy/{{i.id}}">Delete</a></td>                    
+                   
+                </tr>
+                {% endfor %}
+                
+            </table> 
+        
+        <a href="/users/new" style = "color:dodgerblue;">Add a new user</a>    
+</body>
+</html>

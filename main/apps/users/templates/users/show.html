@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Show</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <style>
+            body {font-family: 'Roboto', sans-serif
+            }
+        </style>
+</head>
+
+<body>
+        {% csrf_token %} 
+    <h2>User {{user.id}}</h2>
+    <p>Full Name: {{user.first_name}} {{user.last_name}}</p>
+    <p>Email: {{user.email}} </p>
+    <p>Created at: {{user.created_at}}</p>
+    <a href = "/users/{{user.id}}/edit" style = "color:dodgerblue;">Edit</a> | <a href="/users/destroy/{{user.id}}" style = "color:dodgerblue;">Delete</a> | <a href="/users" style = "color:dodgerblue;">Go Back</a>
+    
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>New User</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <style>
+            body {font-family: 'Roboto', sans-serif
+            }
+        </style>
+</head>
+
+<body>
+        {% csrf_token %}    
+
+<form action="/users/create" method="POST">
+    {% csrf_token %} 
+    <h2>Add a new user</h2>
+    <label for="first_name">First name:</label><br>
+    <input type="text" name="first_n"><br><br>
+    <label for="last_name">Last name:</label><br>
+    <input type="text" name="last_n"><br><br>
+    <label for="email">Email:</label><br>
+    <input type="email" name="email_addr"><br><br>
+    <input type="submit" name="create" value="Create" style = "background-color:dodgerblue; color:white; border-color:black">
+  
+</form><br>
+<a href="/users" style = "color:dodgerblue;">Go Back</a>
+</body>
+</html>
